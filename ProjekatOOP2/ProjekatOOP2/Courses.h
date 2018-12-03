@@ -25,9 +25,7 @@ private:
 	// this will not compile
 	// non-integral constants must be initialized in Courses.cpp
 	// with these values 0.05, 0.5, 0.45
-	static const double QUIZ_WEIGHT = 0.05;
-	static const double HOMEWORK_WEIGHT = 0.5;
-	static const double TEST_WEIGHT = 0.45;
+
 
 	// private data
 	vector<int> quiz;
@@ -42,9 +40,20 @@ public:
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
 
+
 	// utility functions
-	double get_final_score() const;
-	void display() const;
+	vector<int> get_quiz();
+	void set_quiz(vector<int> quiz);
+	vector<int> get_homework();
+	void set_homework(vector<int> homework);
+	vector<int> get_test();
+	void set_test(vector<int> test);
+	double get_final_score();
+	void set_final_score(double final_score);
+	char get_letter_grade();
+	void set_letter_grade(char letter_grade);
+
+	void display();
 	void calc_final_score();
 	void calc_letter_grade();
 };

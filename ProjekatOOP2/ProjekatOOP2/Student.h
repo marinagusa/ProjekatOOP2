@@ -30,8 +30,6 @@ public:
 	Student(string first_name, string last_name, string id);
 
 	string get_first_name();
-
-	string get_first_name();
 	void set_first_name(string first_name);
 	string get_last_name();
 	void set_last_name(string last_name);

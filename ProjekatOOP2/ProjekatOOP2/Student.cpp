@@ -10,6 +10,7 @@
 
 #include "Student.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 Student::Student(string first_name, string last_name, string id)
@@ -44,7 +45,7 @@ void Student::set_id(string id) {
 }
 
 void Student::display() {
-	cout << "Ime: " + first_name + ", Prezime: " + last_name + ", ID: " + id << endl;
+	cout << id << " " << first_name << " " << last_name << endl;
 }
 
 
