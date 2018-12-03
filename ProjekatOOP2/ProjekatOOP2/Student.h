@@ -20,13 +20,25 @@ class Student
 private:
 	// add required members
 
+	string first_name;
+	string last_name;
+	string id;
+
 public:
 	// add required constructors
 
-	string get_first_name() const;
-	string get_last_name() const;
-	string get_id() const;
-	void display() const;
+	Student(string first_name, string last_name, string id);
+
+	string get_first_name();
+
+	string get_first_name();
+	void set_first_name(string first_name);
+	string get_last_name();
+	void set_last_name(string last_name);
+	string get_id();
+	void set_id(string id);
+
+	void display();
 };
 
 #endif /*STUDENT_H_*/
