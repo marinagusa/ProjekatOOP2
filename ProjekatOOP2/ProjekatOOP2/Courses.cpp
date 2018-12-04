@@ -18,6 +18,9 @@ static const double QUIZ_WORTH = 0.05;
 static const double HOMEWORK_WORTH = 0.5;
 static const double TEST_WORTH = 0.45;
 
+Courses::Courses() {
+}
+
 vector<int> Courses::get_quiz() {
 	return this->quiz;
 }
@@ -58,6 +61,26 @@ void Courses::set_letter_grade(char letter_grade) {
 	this->letter_grade = letter_grade;
 }
 
+void Courses::input_format_check() {
+	for (int i = 0; i<quiz.size(); i++) {
+		if (quiz[i] > 100 || quiz[i] < 0) {
+			cout << "Invalid input data format" << endl;
+		}
+	}
+
+	for (int i = 0; i<homework.size(); i++) {
+		if (homework[i] > 100 || homework[i] < 0) {
+			cout << "Invalid input data format" << endl;
+		}
+	}
+
+	for (int i = 0; i<test.size(); i++) {
+		if (test[i] > 100 || test[i] < 0) {
+			cout << "Invalid input data format" << endl;
+
+		}
+	}
+}
 
 void Courses::calc_final_score(){
 	double final_score = 0.0;

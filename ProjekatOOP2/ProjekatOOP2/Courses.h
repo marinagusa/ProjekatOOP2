@@ -36,6 +36,7 @@ private:
 
 public:
 	// constructors
+	Courses();
 	Courses (): quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
@@ -56,6 +57,7 @@ public:
 	void display();
 	void calc_final_score();
 	void calc_letter_grade();
+	void input_format_check();
 };
 
 

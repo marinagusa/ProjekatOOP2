@@ -35,13 +35,13 @@ private:
 public:
 	Menu();
 
-	bool is_id_valid(string id) const;
-	void display_menu() const;
-	void display_info() const;
+	bool is_id_valid(string id);
+	void display_menu();
+	void display_info();
 	void read_students();
-	void display_students() const;
-	void display_students_sorted() const;
-	void display_highest_score() const;
+	void display_students();
+	void display_students_sorted();
+	void display_highest_score();
 };
 
 #endif /*MENU_H_*/

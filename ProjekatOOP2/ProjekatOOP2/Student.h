@@ -27,6 +27,7 @@ private:
 public:
 	// add required constructors
 
+	Student();
 	Student(string first_name, string last_name, string id);
 
 	string get_first_name();

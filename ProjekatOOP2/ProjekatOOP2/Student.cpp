@@ -13,6 +13,9 @@
 #include <string>
 using namespace std;
 
+Student::Student() {
+}
+
 Student::Student(string first_name, string last_name, string id)
 {
 	this->first_name = first_name;

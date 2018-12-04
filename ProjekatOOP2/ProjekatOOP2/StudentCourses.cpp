@@ -14,14 +14,12 @@
 #include <string>
 using namespace std;
 
+StudentCourses::StudentCourses() {
+}
 
 StudentCourses::StudentCourses(Student s, Courses c) {
 	this->student = s;
 	this->courses = c;
-}
-
-StudentCourses::StudentCourses() {
-
 }
 
 
