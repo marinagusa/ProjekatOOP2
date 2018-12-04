@@ -20,10 +20,10 @@ class GroupOfStudents
 {
 private:
 	vector<StudentCourses> stdc_vec;
-	//void search_for_highest(vector<int>& indices_max) const; // utility
+	void search_for_highest(vector<int>& indices_max) const; // utility
 
 public:
-	GroupOfStudents();
+	GroupOfStudents() {};
 	GroupOfStudents(vector< StudentCourses >& v);
 
 	// add required methods
@@ -33,6 +33,8 @@ public:
 	void display_sorted();
 	void display_highest();
 	void write_to_file();
+	void izracunajisetuj();
+	void sortiraj(vector<StudentCourses>& sc);
 };
 
 #endif /*GROUPOFSTUDENTS_H_*/
