@@ -14,18 +14,25 @@
 #include "StudentCourses.h"
 
 using std::vector;
+using namespace std;
 
 class GroupOfStudents
 {
 private:
-	void search_for_highest(vector<int>& indices_max) const; // utility
+	vector<StudentCourses> stdc_vec;
+	//void search_for_highest(vector<int>& indices_max) const; // utility
 
 public:
-	GroupOfStudents() {}
-	GroupOfStudents(const vector< StudentCourses >& v);
+	GroupOfStudents();
+	GroupOfStudents(vector< StudentCourses >& v);
 
 	// add required methods
-	const vector<StudentCourses>& get_student_courses() const;
+	vector<StudentCourses>& get_student_courses();
+	
+	void display();
+	void display_sorted();
+	void display_highest();
+	void write_to_file();
 };
 
 #endif /*GROUPOFSTUDENTS_H_*/
