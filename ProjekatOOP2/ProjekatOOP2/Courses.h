@@ -23,7 +23,7 @@ public:
 
 private:
 	// this will not compile
-	// non-integral constants must be initialized in Courses.cpp
+	// non-integral constants must be initialized in Courses.cpp jh
 	// with these values 0.05, 0.5, 0.45
 
 
