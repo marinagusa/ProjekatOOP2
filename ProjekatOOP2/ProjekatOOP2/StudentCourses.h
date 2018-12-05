@@ -35,6 +35,7 @@ public:
 	bool operator<(const StudentCourses& other);
 	bool operator==(const StudentCourses& other);
 	StudentCourses& operator=(const StudentCourses& other);
+	friend ostream& operator << (ostream& out, StudentCourses& s);
 };
 
 #endif

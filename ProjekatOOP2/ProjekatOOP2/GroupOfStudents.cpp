@@ -10,6 +10,8 @@
 
 #include "GroupOfStudents.h"
 #include "StudentCourses.h"
+#include <iostream>
+#include <fstream>
 
 
 
@@ -108,5 +110,20 @@ void GroupOfStudents::sort(vector<StudentCourses>& arr, int low, int high)
 void GroupOfStudents::callSort()
 {
 	sort(stdc_vec, 0, stdc_vec.size() - 1);
+}
+
+
+void GroupOfStudents::write_to_file() {
+	string adresa;
+	cout << "Unesite adresu fajla: " << "\n";
+	cin >> adresa;
+	ofstream _file;
+	_file.open(adresa);
+
+	for (int i = 0; i < stdc_vec.size(); i++) {
+		_file << stdc_vec[i];
+	}
+
+	_file.close();
 }
 

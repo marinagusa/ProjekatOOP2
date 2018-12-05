@@ -43,6 +43,7 @@ public:
 	void display_students();
 	void display_highest_score();
 	void mSort();
+	void writetofile();
 };
 
 #endif /*MENU_H_*/

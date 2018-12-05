@@ -112,3 +112,7 @@ void Menu::mSort()
 	gs.callSort();
 }
 
+void Menu::writetofile() {
+	gs.write_to_file();
+}
+

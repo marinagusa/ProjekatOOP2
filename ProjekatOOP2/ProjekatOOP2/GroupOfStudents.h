@@ -37,6 +37,10 @@ public:
 	void write_to_file();
 	void callSort();
 	void sort(vector<StudentCourses>& sc, int, int);
+	
+	friend ostream& operator<<(ostream& os, GroupOfStudents gs);
+
+
 };
 
 #endif /*GROUPOFSTUDENTS_H_*/

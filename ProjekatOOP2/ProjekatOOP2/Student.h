@@ -42,6 +42,7 @@ public:
 	bool operator<(const Student& other);
 	bool operator==(const Student& other);
 	void display();
+	friend ostream& operator<<(ostream& out, Student& s);
 };
 
 #endif /*STUDENT_H_*/

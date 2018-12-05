@@ -83,3 +83,8 @@ bool Student::operator==(const Student & other)
 {
 	return ((first_name == other.first_name) && (last_name == other.last_name) && (id == other.id));
 }
+
+ostream& operator<<(ostream& out, Student& s) {
+	out << s.id << " " << s.first_name << " " << s.last_name << " ";
+	return out;
+}

@@ -76,6 +76,10 @@ int main()
 		case Menu::SORT:
 			m.mSort();
 			break;
+		
+		case Menu::SAVE:
+			m.writetofile();
+			break;
 		}
 
 		m.display_menu();

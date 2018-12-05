@@ -151,3 +151,8 @@ istream& operator>>(istream& in, Courses& cours) {
 	cours.calc_letter_grade();
 	return in;
 }
+
+ostream& operator<<(ostream& out, Courses& courses) {
+	out << " " << courses.final_score << " " << courses.letter_grade << "\n";
+	return out;
+}

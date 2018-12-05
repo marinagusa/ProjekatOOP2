@@ -54,6 +54,7 @@ public:
 
 	friend istream& operator >> (istream& in, Courses& c);
 	Courses& operator=(const Courses& other);
+	friend ostream& operator << (ostream& out, Courses& c);
 };
 
 
