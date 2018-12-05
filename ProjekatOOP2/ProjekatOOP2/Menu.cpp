@@ -46,13 +46,10 @@ void Menu::display_info() {
 	cout << "Marina Gusa sw49/2017" << endl;
 }
 
-void Menu::read_students() {
+void Menu::read_students(string file_path) {
 
 	gs.set_student_courses_empty(); 
 
-	cout << "Unesite putanju do zeljenog fajla:\n";
-	string file_path;
-	cin >> file_path;
 	StudentCourses sc;
 	vector<StudentCourses> data;
 	ifstream input;
@@ -112,7 +109,7 @@ void Menu::mSort()
 	gs.callSort();
 }
 
-void Menu::writetofile() {
-	gs.write_to_file();
+void Menu::writetofile(bool given, string path) {
+	gs.write_to_file(given, path);
 }
 

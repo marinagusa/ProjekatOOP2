@@ -71,6 +71,6 @@ istream& operator >> (istream& in, StudentCourses& sc) {
 }
 
 ostream& operator << (ostream& out, StudentCourses& sc) {
-	out << sc.student << sc.courses << endl;
+	out << sc.student << sc.courses;
 	return out;
 }

@@ -113,17 +113,19 @@ void GroupOfStudents::callSort()
 }
 
 
-void GroupOfStudents::write_to_file() {
-	string adresa;
-	cout << "Unesite adresu fajla: " << "\n";
-	cin >> adresa;
-	ofstream _file;
-	_file.open(adresa);
-
-	for (int i = 0; i < stdc_vec.size(); i++) {
-		_file << stdc_vec[i];
+void GroupOfStudents::write_to_file(bool given, string path) {
+	if (!given) {
+		cout << "Unesite adresu fajla: " << "\n";
+		cin >> path;
 	}
+		ofstream _file;
+		_file.open(path);
 
-	_file.close();
+		for (int i = 0; i < stdc_vec.size(); i++) {
+			_file << stdc_vec[i];
+		}
+
+		_file.close();
+	
 }
 

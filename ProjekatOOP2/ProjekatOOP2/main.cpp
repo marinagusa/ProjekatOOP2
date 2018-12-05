@@ -11,12 +11,33 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
+	string input_path;
+	string output_path = "";
+	bool output_given;
+
+	if (argc != 2 && argc != 3) {
+		"Pogresan broj argumenata!";
+		exit(1);
+	}
+	else {
+		if (argc == 2) {
+			input_path = argv[1];
+			output_given = false;
+		}
+		else {
+			input_path = argv[1];
+			output_path = argv[2];
+			output_given = true;
+		}
+	}
+
 	Menu m;
 	int option;
 	m.display_menu();
-	
+	bool is_read = false;
+
 	do
 	{
 		cout << "> ";
@@ -48,7 +69,8 @@ int main()
 		case Menu::READ_FILE:
 			try
 			{
-				m.read_students();
+				m.read_students(input_path);
+				is_read = true;
 			}
 			catch (const Menu::InvalidFile& excp)
 			{
@@ -61,24 +83,29 @@ int main()
 			break;
 
 		case Menu::DISPLAY:
-			m.display_single();
+			if (is_read) m.display_single();
+			else cout << "Nema ucitanih studenata!";
 			break;
 
 		case Menu::DISPLAY_ALL:
-			m.display_students();
+			if (is_read) m.display_students();
+			else cout << "Nema ucitanih studenata!";
 			break;
 
 
 		case Menu::HIGHEST:
-			m.display_highest_score();
+			if (is_read) m.display_highest_score();
+			else cout << "Nema ucitanih studenata!";
 			break;
 
 		case Menu::SORT:
-			m.mSort();
+			if (is_read) m.mSort();
+			else cout << "Nema ucitanih studenata!";
 			break;
 		
 		case Menu::SAVE:
-			m.writetofile();
+			if (is_read) m.writetofile(output_given, output_path);
+			else cout << "Nema ucitanih studenata!";
 			break;
 		}
 

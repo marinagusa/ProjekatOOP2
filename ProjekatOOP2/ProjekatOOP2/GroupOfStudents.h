@@ -34,7 +34,7 @@ public:
 	void display(string);
 	void display_all();	
 	void display_highest();
-	void write_to_file();
+	void write_to_file(bool,string);
 	void callSort();
 	void sort(vector<StudentCourses>& sc, int, int);
 	

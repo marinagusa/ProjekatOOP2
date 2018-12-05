@@ -38,12 +38,12 @@ public:
 	GroupOfStudents get_gs();
 	void display_menu();
 	void display_info();
-	void read_students();
+	void read_students(string);
 	void display_single();
 	void display_students();
 	void display_highest_score();
 	void mSort();
-	void writetofile();
+	void writetofile(bool,string);
 };
 
 #endif /*MENU_H_*/
