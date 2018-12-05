@@ -40,7 +40,7 @@ int main()
 			}
 		}
 			
-		switch(option)
+		switch (option)
 		{
 		case Menu::INFO:
 			m.display_info();
@@ -49,26 +49,32 @@ int main()
 			try
 			{
 				m.read_students();
-			} catch (const Menu::InvalidFile& excp)
+			}
+			catch (const Menu::InvalidFile& excp)
 			{
 				cerr << excp.what() << endl;
-			} catch (const Menu::InvalidData& excp)
+			}
+			catch (const Menu::InvalidData& excp)
 			{
 				cerr << excp.what() << endl;
 			}
 			break;
 
 		case Menu::DISPLAY:
-			//m.display_single();
+			m.display_single();
 			break;
 
 		case Menu::DISPLAY_ALL:
 			m.display_students();
 			break;
 
-		
+
 		case Menu::HIGHEST:
-			//m.display_highest_score();
+			m.display_highest_score();
+			break;
+
+		case Menu::SORT:
+			m.mSort();
 			break;
 		}
 

@@ -64,3 +64,22 @@ istream& operator >> (istream& in, Student& stud) {
 	return in;
 
 }
+
+Student & Student::operator=(const Student & other)
+{
+	first_name = other.first_name;
+	last_name = other.last_name;
+	id = other.id;
+
+	return *this;
+}
+
+bool Student::operator<(const Student & other)
+{
+	return last_name < other.last_name;
+}
+
+bool Student::operator==(const Student & other)
+{
+	return ((first_name == other.first_name) && (last_name == other.last_name) && (id == other.id));
+}

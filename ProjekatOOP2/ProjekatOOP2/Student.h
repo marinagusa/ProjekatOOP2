@@ -38,6 +38,9 @@ public:
 	void set_id(string id);
 
 	friend istream& operator>>(istream& in, Student& s);
+	Student& operator= (const Student& other);
+	bool operator<(const Student& other);
+	bool operator==(const Student& other);
 	void display();
 };
 

@@ -19,6 +19,13 @@ using namespace std;
 Menu::Menu() {
 }
 
+GroupOfStudents Menu::get_gs()
+{
+	return gs;
+}
+
+
+
 void Menu::display_menu() {
 	cout << "\n";
 	cout << "1. Prikazi osnovne informacije o autorima" << endl;
@@ -72,7 +79,6 @@ void Menu::read_students() {
 	}
 	else {
 		gs.set_student_courses(data);
-		gs.izracunajisetuj();
 
 	}
 
@@ -80,8 +86,29 @@ void Menu::read_students() {
 	input.close();
 }
 
+void Menu::display_single()
+{
+	string input_id;
+	cout << "Unesite broj indeksa studenta za prikaz: ";
+	cin >> input_id;
+
+	gs.display(input_id);
+
+
+}
+
 void Menu::display_students()
 {
 	gs.display_all();
+}
+
+void Menu::display_highest_score()
+{
+	gs.display_highest();
+}
+
+void Menu::mSort()
+{
+	gs.callSort();
 }
 
