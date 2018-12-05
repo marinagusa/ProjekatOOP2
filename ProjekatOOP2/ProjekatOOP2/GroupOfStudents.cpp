@@ -99,6 +99,43 @@ void GroupOfStudents::sort(vector<StudentCourses>& arr, int low, int high)
 	}
 }
 
+void GroupOfStudents::write_binary(bool given, string path)
+{
+	if (!given) {
+		cout << "Unesite adresu fajla: " << "\n";
+		cin >> path;
+	}
+
+	ofstream _file(path, ios::out | ios_base::binary);
+
+	for (int i = 0; i < stdc_vec.size(); i++) {
+		StudentCourses studcourse = stdc_vec[i];
+		Student student = studcourse.get_student();
+		Courses course = studcourse.get_courses();
+
+		char r = ' ';
+		char nextline = '\n';
+		_file.write(student.get_first_name().c_str(), student.get_first_name().size() * sizeof(char));
+		_file.write(&r, sizeof(char));
+
+		_file.write(student.get_last_name().c_str(), student.get_last_name().size() * sizeof(char));
+		_file.write(&r, sizeof(char));
+
+		_file.write(student.get_id().c_str(), student.get_id().size() * sizeof(char));
+		_file.write(&r, sizeof(char));
+
+		int s = int(course.get_final_score());
+		_file.write((char*)&s, sizeof(int));
+		_file.write(&r, sizeof(char));
+
+		char letter = course.get_letter_grade();
+		_file.write((char*)&letter, sizeof(char));
+		_file.write(&r, sizeof(char));
+		_file.write(&nextline, sizeof(char));
+	}
+	_file.close();
+}
+
 void GroupOfStudents::callSort()
 {
 	sort(stdc_vec, 0, stdc_vec.size() - 1);

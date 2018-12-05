@@ -15,20 +15,23 @@ int main(int argc, char *argv[])
 {
 	string input_path;
 	string output_path = "";
+	string input_type;
 	bool output_given;
 
-	if (argc != 2 && argc != 3) {
+	if (argc != 3 && argc != 4) {
 		"Pogresan broj argumenata!";
 		exit(1);
 	}
 	else {
-		if (argc == 2) {
+		if (argc == 3) {
 			input_path = argv[1];
+			input_type = argv[2];
 			output_given = false;
 		}
 		else {
 			input_path = argv[1];
-			output_path = argv[2];
+			input_type = argv[2];
+			output_path = argv[3];
 			output_given = true;
 		}
 	}
@@ -69,7 +72,7 @@ int main(int argc, char *argv[])
 		case Menu::READ_FILE:
 			try
 			{
-				m.read_students(input_path);
+				if (input_type == "txt") m.read_students(input_path); else if(input_type == "bin") m.read_students_binary(input_path);
 				is_read = true;
 			}
 			catch (const Menu::InvalidFile& excp)
@@ -104,7 +107,10 @@ int main(int argc, char *argv[])
 			break;
 		
 		case Menu::SAVE:
-			if (is_read) m.writetofile(output_given, output_path);
+			if (is_read) {
+				if (input_type == "txt") m.writetofile(output_given, output_path);
+				else if (input_type == "bin") m.write_binary(output_given, output_path);
+			}
 			else cout << "Nema ucitanih studenata!";
 			break;
 		}

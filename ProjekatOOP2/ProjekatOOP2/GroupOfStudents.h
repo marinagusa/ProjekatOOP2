@@ -36,7 +36,8 @@ public:
 	void write_to_file(bool,string);
 	void callSort();
 	void sort(vector<StudentCourses>& sc, int, int);
-	
+	void write_binary(bool, string);
+
 	friend ostream& operator<<(ostream& os, GroupOfStudents gs);
 
 

@@ -23,13 +23,14 @@ public:
 	static const int NUM_TESTS = 4;
 
 private:
-	vector<int> quiz;
-	vector<int> homework;
-	vector<int> test;
+	
 	double final_score;
 	char letter_grade;
 
 public:
+	vector<int> quiz;
+	vector<int> homework;
+	vector<int> test;
 	Courses (): quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}

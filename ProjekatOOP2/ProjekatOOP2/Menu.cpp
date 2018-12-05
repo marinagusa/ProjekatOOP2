@@ -83,6 +83,123 @@ void Menu::read_students(string file_path) {
 	input.close();
 }
 
+void Menu::read_students_binary(string input_path)
+{
+	vector <StudentCourses> data;
+	ifstream _file;
+	_file.open(input_path, ios::in | ios_base::binary);
+	char c;
+
+	while (!_file.eof()) {
+		string first_name = "";
+		string last_name = "";
+		string id = "";
+
+		vector<int> quiz;
+		vector<int> homework;
+		vector<int> test;
+
+		_file.read((char*)&c, sizeof(char));
+
+		while (c != ' ')
+		{
+			first_name += c;
+			_file.read((char*)&c, sizeof(char));
+		}
+
+		_file.read((char*)&c, sizeof(char));
+
+		while (c != ' ')
+		{
+			last_name += c;
+			_file.read((char*)&c, sizeof(char));
+		}
+
+		_file.read((char*)&c, sizeof(char));
+
+		while (c != '\n')
+		{
+			id += c;
+			_file.read((char*)&c, sizeof(char));
+		}
+
+		Student student(first_name, last_name, id);
+
+		_file.read((char*)&c, sizeof(char));
+		string num = "";
+
+		while (c != '\n')
+		{
+			if (c == ' ') {
+				quiz.push_back(atoi(num.c_str()));
+				num = "";
+			}
+			else {
+				num += c;
+			}
+
+			_file.read((char*)&c, sizeof(char));
+		}
+
+
+		_file.read((char*)&c, sizeof(char));
+		num = "";
+
+		while (c != '\n')
+		{
+			if (c == ' ') {
+				quiz.push_back(atoi(num.c_str()));
+				num = "";
+			}
+			else {
+				num += c;
+			}
+
+			_file.read((char*)&c, sizeof(char));
+		}
+
+
+		_file.read((char*)&c, sizeof(char));
+		num = "";
+
+		while (c != '\n')
+		{
+			if (c == ' ') {
+				homework.push_back(atoi(num.c_str()));
+				num = "";
+			}
+			else {
+				num += c;
+			}
+
+			_file.read((char*)&c, sizeof(char));
+		}
+
+
+		_file.read((char*)&c, sizeof(char));
+		num = "";
+
+		while (c != '\n')
+		{
+			if (c == ' ') {
+				test.push_back(atoi(num.c_str()));
+				num = "";
+			}
+			else {
+				num += c;
+			}
+
+			_file.read((char*)&c, sizeof(char));
+		}
+
+		Courses course(quiz, homework, test);
+		StudentCourses studcourse(student, course);
+		data.push_back(studcourse);
+	}
+
+	gs.set_student_courses(data);
+}
+
 void Menu::display_single()
 {
 	string input_id;
@@ -111,5 +228,10 @@ void Menu::mSort()
 
 void Menu::writetofile(bool given, string path) {
 	gs.write_to_file(given, path);
+}
+
+void Menu::write_binary(bool given, string path)
+{
+	gs.write_binary(given, path);
 }
 

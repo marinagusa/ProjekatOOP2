@@ -39,11 +39,13 @@ public:
 	void display_menu();
 	void display_info();
 	void read_students(string);
+	void read_students_binary(string);
 	void display_single();
 	void display_students();
 	void display_highest_score();
 	void mSort();
 	void writetofile(bool,string);
+	void write_binary(bool, string);
 };
 
 #endif /*MENU_H_*/
