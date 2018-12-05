@@ -99,7 +99,7 @@ void Courses::input_format_check() {
 }
 
 void Courses::calc_final_score(){
-	double final_score = 0.0;
+	double res = 0.0;
 	double quiz_score = 0.0;
 	double homework_score = 0.0;
 	double test_score = 0.0;
@@ -116,11 +116,15 @@ void Courses::calc_final_score(){
 		test_score += test[i];
 	}
 
-	quiz_score = (quiz_score / quiz.size()) * QUIZ_WORTH;
-	homework_score = (homework_score/homework.size()) * HOMEWORK_WORTH;
-	test_score = (test_score/test.size()) * TEST_WORTH;
+	quiz_score = quiz_score / quiz.size();
+	quiz_score = quiz_score * QUIZ_WORTH;
+	homework_score = homework_score / homework.size();
+	homework_score = homework_score * HOMEWORK_WORTH;
+	test_score = test_score / test.size();
+	test_score = test_score * TEST_WORTH;
 
-	final_score = quiz_score + homework_score + test_score;
+	res = quiz_score + homework_score + test_score;
+	final_score = res;
 }
 
 void Courses::calc_letter_grade() {
