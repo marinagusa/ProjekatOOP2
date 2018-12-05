@@ -1,6 +1,6 @@
 //============================================================================
 // File Name   : GroupOfStudents.cpp
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project
@@ -60,8 +60,6 @@ void GroupOfStudents::display_highest() {
 			this->stdc_vec[j].display();
 		}
 	}
-
-
 }
 
 
@@ -74,16 +72,14 @@ void swap(StudentCourses* a, StudentCourses* b)
 
 int partition(vector<StudentCourses>& sc, int low, int high)
 {
-	StudentCourses pivot = sc[high];    // pivot 
-	int i = (low - 1);  // Index of smaller element 
+	StudentCourses pivot = sc[high];     
+	int i = (low - 1);  
 
 	for (int j = low; j <= high - 1; j++)
 	{
-		// If current element is smaller than or 
-		// equal to pivot 
 		if ((sc[j] < pivot) || (sc[j] == pivot))
 		{
-			i++;    // increment index of smaller element 
+			i++;     
 			swap(&sc[i], &sc[j]);
 		}
 	}
@@ -96,12 +92,8 @@ void GroupOfStudents::sort(vector<StudentCourses>& arr, int low, int high)
 {
 	if (low < high)
 	{
-		/* pi is partitioning index, arr[p] is now
-		at right place */
 		int pi = partition(arr, low, high);
 
-		// Separately sort elements before 
-		// partition and after partition 
 		sort(arr, low, pi - 1);
 		sort(arr, pi + 1, high);
 	}
@@ -128,4 +120,3 @@ void GroupOfStudents::write_to_file(bool given, string path) {
 		_file.close();
 	
 }
-

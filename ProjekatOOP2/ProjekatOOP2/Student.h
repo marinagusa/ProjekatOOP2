@@ -1,6 +1,6 @@
 //============================================================================
 // File Name   : Student.h
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project
@@ -18,15 +18,11 @@ using namespace std;
 class Student
 {
 private:
-	// add required members
-
 	string first_name;
 	string last_name;
 	string id;
 
 public:
-	// add required constructors
-
 	Student();
 	Student(string first_name, string last_name, string id);
 

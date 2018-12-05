@@ -1,6 +1,6 @@
 //============================================================================
 // File Name   : Menu.cpp
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project

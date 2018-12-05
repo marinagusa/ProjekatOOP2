@@ -1,6 +1,6 @@
 //============================================================================
 // File Name   : Courses.cpp
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project
@@ -100,8 +100,7 @@ void Courses::calc_final_score(){
 	}
 
 	quiz_score = quiz_score / quiz.size();
-	quiz_score = quiz_score * QUIZ_WORTH;
-
+	quiz_score = (quiz_score / quiz.size()) * QUIZ_WORTH;
 	homework_score = homework_score / homework.size();
 	homework_score = homework_score * HOMEWORK_WORTH;
 	test_score = test_score / test.size();

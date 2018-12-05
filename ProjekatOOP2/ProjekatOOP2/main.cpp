@@ -1,6 +1,6 @@
 //============================================================================
 // File Name   : main.cpp 
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project
@@ -43,9 +43,9 @@ int main(int argc, char *argv[])
 		cout << "> ";
 		while (!(cin >> option) || option < 1 || option > Menu::EXIT)
 		{
-			if (cin.fail())	// we found something that wasn’t an integer
+			if (cin.fail())	
 			{
-				cin.clear();	// we’d like to look at the characters
+				cin.clear();	
 				char ch;
 				while (cin>>ch && !isdigit(ch))
 				{
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 				cin.unget();
 			} 
 			else
-			{	// option < 1 || option > Menu::EXIT */
+			{	
 				cerr << "Invalid input; please try again" << endl;
 				cout << "> ";
 			}

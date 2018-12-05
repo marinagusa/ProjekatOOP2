@@ -1,12 +1,13 @@
 //============================================================================
 // File Name   : StudentCourses.cpp
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project
 //============================================================================
 //NASE
 // Your code starts here:
+
 #include "StudentCourses.h"
 #include "Student.h"
 #include "Courses.h"

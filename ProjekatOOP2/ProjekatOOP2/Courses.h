@@ -1,6 +1,6 @@
 //============================================================================
 // File Name   : Courses.h
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project
@@ -23,12 +23,6 @@ public:
 	static const int NUM_TESTS = 4;
 
 private:
-	// this will not compile
-	// non-integral constants must be initialized in Courses.cpp
-	// with these values 0.05, 0.5, 0.45
-
-
-	// private data
 	vector<int> quiz;
 	vector<int> homework;
 	vector<int> test;
@@ -36,14 +30,10 @@ private:
 	char letter_grade;
 
 public:
-	// constructors
-	
 	Courses (): quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
 
-
-	// utility functions
 	double get_final_score() const;
 	char get_letter_grade() const;
 	bool value_test() const;

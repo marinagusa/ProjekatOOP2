@@ -1,6 +1,6 @@
 //============================================================================
 // File Name   : GroupOfStudents.h
-// Authors     : You
+// Authors     : Marko Cvijanovic, Milorad Radovic, Marina Gusa
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
 // Description : C++ group project
@@ -20,13 +20,12 @@ class GroupOfStudents
 {
 private:
 	vector<StudentCourses> stdc_vec;
-	void search_for_highest(vector<int>& indices_max) const; // utility
+	void search_for_highest(vector<int>& indices_max) const;
 
 public:
 	GroupOfStudents() {};
 	GroupOfStudents(vector< StudentCourses >& v);
 
-	// add required methods
 	vector<StudentCourses>& get_student_courses();
 	void set_student_courses(vector<StudentCourses>&);
 	void set_student_courses_empty();
