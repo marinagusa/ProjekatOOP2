@@ -13,6 +13,7 @@
 #include <vector>
 
 using std::vector;
+using namespace std;
 
 class Courses
 {
@@ -36,7 +37,7 @@ private:
 
 public:
 	// constructors
-	Courses();
+	
 	Courses (): quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
@@ -53,11 +54,14 @@ public:
 	void set_final_score(double final_score);
 	char get_letter_grade();
 	void set_letter_grade(char letter_grade);
+	bool value_test();
 
 	void display();
 	void calc_final_score();
 	void calc_letter_grade();
 	void input_format_check();
+
+	friend istream& operator >> (istream& in, Courses& c);
 };
 
 

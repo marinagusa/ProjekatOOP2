@@ -28,13 +28,15 @@ public:
 
 	// add required methods
 	vector<StudentCourses>& get_student_courses();
+	void set_student_courses(vector<StudentCourses>&);
+	void set_student_courses_empty();
 	
 	void display();
-	void display_sorted();
+	void display_all();	
 	void display_highest();
 	void write_to_file();
 	void izracunajisetuj();
-	void sortiraj(vector<StudentCourses>& sc);
+	void sort(vector<StudentCourses>& sc);
 };
 
 #endif /*GROUPOFSTUDENTS_H_*/

@@ -9,17 +9,11 @@
 //  Your code starts here
 
 #include "Courses.h"
-#include <iostream>
 #include <vector>
-using namespace std;
-using std::vector;
 
 static const double QUIZ_WORTH = 0.05;
 static const double HOMEWORK_WORTH = 0.5;
 static const double TEST_WORTH = 0.45;
-
-Courses::Courses() {
-}
 
 vector<int> Courses::get_quiz() {
 	return this->quiz;
@@ -61,6 +55,28 @@ void Courses::set_letter_grade(char letter_grade) {
 	this->letter_grade = letter_grade;
 }
 
+bool Courses::value_test() {
+	for (int i = 0; i<quiz.size(); i++) {
+		if (quiz[i]>100 || quiz[i] < 0) {
+			return false;
+		}
+	}
+
+	for (int i = 0; i<homework.size(); i++) {
+		if (homework[i]>100 || homework[i] < 0) {
+			return false;
+		}
+	}
+
+	for (int i = 0; i<test.size(); i++) {
+		if (test[i]>100 || test[i] < 0) {
+			return false;
+		}
+	}
+
+	return true;
+
+}
 void Courses::input_format_check() {
 	for (int i = 0; i<quiz.size(); i++) {
 		if (quiz[i] > 100 || quiz[i] < 0) {
@@ -132,3 +148,18 @@ void Courses::display() {
 	cout << round(final_score) << " " << letter_grade << endl;
 }
 
+istream& operator>>(istream& in, Courses& cours) {
+	for (int i = 0; i < cours.quiz.size(); i++) {
+		in >> cours.quiz[i];
+	}
+
+	for (int i = 0; i < cours.homework.size(); i++) {
+		in >> cours.homework[i];
+	}
+
+	for (int i = 0; i < cours.test.size(); i++) {
+		in >> cours.test[i];
+	}
+
+	return in;
+}

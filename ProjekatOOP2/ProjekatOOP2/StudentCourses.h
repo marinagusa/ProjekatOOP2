@@ -29,7 +29,9 @@ public:
 	double get_final_score();
 	char get_letter_grade();
 	void display();
+	bool value_test();
 
+	friend istream& operator >> (istream& in, StudentCourses& s);
 };
 
 #endif

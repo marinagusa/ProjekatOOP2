@@ -57,16 +57,21 @@ int main()
 				cerr << excp.what() << endl;
 			}
 			break;
+
 		case Menu::DISPLAY:
+			//m.display_single();
+			break;
+
+		case Menu::DISPLAY_ALL:
 			m.display_students();
 			break;
-		case Menu::DISPLAY_SORTED:
-			m.display_students_sorted();
-			break;   
+
+		
 		case Menu::HIGHEST:
-			m.display_highest_score();
+			//m.display_highest_score();
 			break;
 		}
+
 		m.display_menu();
 	} while (option != Menu::EXIT);
 	return 0;

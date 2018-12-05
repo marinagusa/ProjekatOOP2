@@ -51,4 +51,16 @@ void Student::display() {
 	cout << id << " " << first_name << " " << last_name << endl;
 }
 
+istream& operator >> (istream& in, Student& stud) {
+	string first, last, br;
+	in >> first;
+	in >> last;
+	in >> br;
 
+	stud.first_name = first;
+	stud.last_name = last;
+	stud.id = br;
+
+	return in;
+
+}

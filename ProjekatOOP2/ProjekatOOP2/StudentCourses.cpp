@@ -42,3 +42,14 @@ void StudentCourses::display() {
 
 
 }
+
+bool StudentCourses::value_test()
+{
+	return courses.value_test();
+}
+
+istream& operator >> (istream& in, StudentCourses& sc) {
+	in >> sc.student;
+	in >> sc.courses;
+	return in;
+}

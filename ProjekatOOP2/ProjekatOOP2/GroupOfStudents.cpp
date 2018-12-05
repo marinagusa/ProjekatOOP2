@@ -6,9 +6,10 @@
 // Description : C++ group project
 //============================================================================
 
-//  Your code starts here
+//  Your code starts heres
 
 #include "GroupOfStudents.h"
+#include "StudentCourses.h"
 
 void GroupOfStudents::izracunajisetuj(){
 	for (int i = 0; i < this->stdc_vec.size(); i++) {
@@ -17,11 +18,28 @@ void GroupOfStudents::izracunajisetuj(){
 	}
 }
 
+void GroupOfStudents::set_student_courses(vector<StudentCourses>& sc)
+{
+	stdc_vec = sc;
+}
+
+void GroupOfStudents::set_student_courses_empty()
+{
+	stdc_vec.empty();
+}
+
 void GroupOfStudents::display() {
-	izracunajisetuj();
 
 	for (int i = 0; i < this->stdc_vec.size(); i++) {
 		this->stdc_vec[i].display();
+	}
+}
+
+void GroupOfStudents::display_all()
+{
+	for (int i = 0; i < stdc_vec.size(); i++) {
+		stdc_vec[i].display();
+		cout << "\n";
 	}
 }
 
@@ -44,11 +62,7 @@ void GroupOfStudents::display_highest() {
 
 }
 
-void GroupOfStudents::sortiraj(vector<StudentCourses>& sc) {
-
+void GroupOfStudents::sort(vector<StudentCourses>& sc) {
+	
 }
 
-void GroupOfStudents::display_sorted() {
-	sortiraj(this->stdc_vec);
-	display();
-}
