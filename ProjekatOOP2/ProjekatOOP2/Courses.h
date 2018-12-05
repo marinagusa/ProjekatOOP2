@@ -13,6 +13,7 @@
 #include <vector>
 
 using std::vector;
+using namespace std;
 
 class Courses
 {
@@ -36,28 +37,24 @@ private:
 
 public:
 	// constructors
-	Courses();
+	
 	Courses (): quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
 
 
 	// utility functions
-	vector<int> get_quiz();
-	void set_quiz(vector<int> quiz);
-	vector<int> get_homework();
-	void set_homework(vector<int> homework);
-	vector<int> get_test();
-	void set_test(vector<int> test);
-	double get_final_score();
-	void set_final_score(double final_score);
-	char get_letter_grade();
-	void set_letter_grade(char letter_grade);
+	double get_final_score() const;
+	char get_letter_grade() const;
+	bool value_test() const;
 
-	void display();
 	void calc_final_score();
 	void calc_letter_grade();
 	void input_format_check();
+
+	friend istream& operator >> (istream& in, Courses& c);
+	Courses& operator=(const Courses& other);
+	friend ostream& operator << (ostream& out, Courses& c);
 };
 
 

@@ -51,4 +51,40 @@ void Student::display() {
 	cout << id << " " << first_name << " " << last_name << endl;
 }
 
+istream& operator >> (istream& in, Student& stud) {
+	string first, last, br;
+	in >> first;
+	in >> last;
+	in >> br;
 
+	stud.first_name = first;
+	stud.last_name = last;
+	stud.id = br;
+
+	return in;
+
+}
+
+Student & Student::operator=(const Student & other)
+{
+	first_name = other.first_name;
+	last_name = other.last_name;
+	id = other.id;
+
+	return *this;
+}
+
+bool Student::operator<(const Student & other)
+{
+	return last_name < other.last_name;
+}
+
+bool Student::operator==(const Student & other)
+{
+	return ((first_name == other.first_name) && (last_name == other.last_name) && (id == other.id));
+}
+
+ostream& operator<<(ostream& out, Student& s) {
+	out << s.id << " " << s.first_name << " " << s.last_name << " ";
+	return out;
+}

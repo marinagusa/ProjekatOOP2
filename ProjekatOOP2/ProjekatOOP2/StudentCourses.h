@@ -29,7 +29,13 @@ public:
 	double get_final_score();
 	char get_letter_grade();
 	void display();
+	bool value_test();
 
+	friend istream& operator >> (istream& in, StudentCourses& s);
+	bool operator<(const StudentCourses& other);
+	bool operator==(const StudentCourses& other);
+	StudentCourses& operator=(const StudentCourses& other);
+	friend ostream& operator << (ostream& out, StudentCourses& s);
 };
 
 #endif

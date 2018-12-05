@@ -11,12 +11,33 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
+	string input_path;
+	string output_path = "";
+	bool output_given;
+
+	if (argc != 2 && argc != 3) {
+		"Pogresan broj argumenata!";
+		exit(1);
+	}
+	else {
+		if (argc == 2) {
+			input_path = argv[1];
+			output_given = false;
+		}
+		else {
+			input_path = argv[1];
+			output_path = argv[2];
+			output_given = true;
+		}
+	}
+
 	Menu m;
 	int option;
 	m.display_menu();
-	
+	bool is_read = false;
+
 	do
 	{
 		cout << "> ";
@@ -40,7 +61,7 @@ int main()
 			}
 		}
 			
-		switch(option)
+		switch (option)
 		{
 		case Menu::INFO:
 			m.display_info();
@@ -48,25 +69,46 @@ int main()
 		case Menu::READ_FILE:
 			try
 			{
-				m.read_students();
-			} catch (const Menu::InvalidFile& excp)
+				m.read_students(input_path);
+				is_read = true;
+			}
+			catch (const Menu::InvalidFile& excp)
 			{
 				cerr << excp.what() << endl;
-			} catch (const Menu::InvalidData& excp)
+			}
+			catch (const Menu::InvalidData& excp)
 			{
 				cerr << excp.what() << endl;
 			}
 			break;
+
 		case Menu::DISPLAY:
-			m.display_students();
+			if (is_read) m.display_single();
+			else cout << "Nema ucitanih studenata!";
 			break;
-		case Menu::DISPLAY_SORTED:
-			m.display_students_sorted();
-			break;   
+
+		case Menu::DISPLAY_ALL:
+			if (is_read) m.display_students();
+			else cout << "Nema ucitanih studenata!";
+			break;
+
+
 		case Menu::HIGHEST:
-			m.display_highest_score();
+			if (is_read) m.display_highest_score();
+			else cout << "Nema ucitanih studenata!";
+			break;
+
+		case Menu::SORT:
+			if (is_read) m.mSort();
+			else cout << "Nema ucitanih studenata!";
+			break;
+		
+		case Menu::SAVE:
+			if (is_read) m.writetofile(output_given, output_path);
+			else cout << "Nema ucitanih studenata!";
 			break;
 		}
+
 		m.display_menu();
 	} while (option != Menu::EXIT);
 	return 0;

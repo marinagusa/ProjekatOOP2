@@ -13,7 +13,7 @@
 #include <string>
 #include <iostream>
 
-using std::string;
+using namespace std;
 
 class Student
 {
@@ -37,7 +37,12 @@ public:
 	string get_id();
 	void set_id(string id);
 
+	friend istream& operator>>(istream& in, Student& s);
+	Student& operator= (const Student& other);
+	bool operator<(const Student& other);
+	bool operator==(const Student& other);
 	void display();
+	friend ostream& operator<<(ostream& out, Student& s);
 };
 
 #endif /*STUDENT_H_*/

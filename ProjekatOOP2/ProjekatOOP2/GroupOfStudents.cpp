@@ -6,28 +6,48 @@
 // Description : C++ group project
 //============================================================================
 
-//  Your code starts here
+//  Your code starts heres
 
 #include "GroupOfStudents.h"
+#include "StudentCourses.h"
+#include <iostream>
+#include <fstream>
 
-void GroupOfStudents::izracunajisetuj(){
-	for (int i = 0; i < this->stdc_vec.size(); i++) {
-		this->stdc_vec[i].get_courses().set_final_score(this->stdc_vec[i].get_final_score());
-		this->stdc_vec[i].get_courses().set_letter_grade(this->stdc_vec[i].get_letter_grade());
-	}
+
+
+void GroupOfStudents::set_student_courses(vector<StudentCourses>& sc)
+{
+	stdc_vec = sc;
 }
 
-void GroupOfStudents::display() {
-	izracunajisetuj();
+void GroupOfStudents::set_student_courses_empty()
+{
+	stdc_vec.empty();
+}
+
+void GroupOfStudents::display(string id) {
 
 	for (int i = 0; i < this->stdc_vec.size(); i++) {
-		this->stdc_vec[i].display();
+		if (stdc_vec[i].get_student().get_id() == id) {
+			stdc_vec[i].display();
+			return;
+		}
+	}
+
+	cout << "Student sa trazenim brojem indeksa nije pronadjen";
+	return;
+}
+
+void GroupOfStudents::display_all()
+{
+	for (int i = 0; i < stdc_vec.size(); i++) {
+		stdc_vec[i].display();
+		cout << "\n";
 	}
 }
 
 void GroupOfStudents::display_highest() {
 	double max = 0;
-	izracunajisetuj();
 
 	for (int i = 0; i < this->stdc_vec.size(); i++) {
 		if (this->stdc_vec[i].get_final_score() > max) {
@@ -44,11 +64,68 @@ void GroupOfStudents::display_highest() {
 
 }
 
-void GroupOfStudents::sortiraj(vector<StudentCourses>& sc) {
 
+void swap(StudentCourses* a, StudentCourses* b)
+{
+	StudentCourses temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-void GroupOfStudents::display_sorted() {
-	sortiraj(this->stdc_vec);
-	display();
+int partition(vector<StudentCourses>& sc, int low, int high)
+{
+	StudentCourses pivot = sc[high];    // pivot 
+	int i = (low - 1);  // Index of smaller element 
+
+	for (int j = low; j <= high - 1; j++)
+	{
+		// If current element is smaller than or 
+		// equal to pivot 
+		if ((sc[j] < pivot) || (sc[j] == pivot))
+		{
+			i++;    // increment index of smaller element 
+			swap(&sc[i], &sc[j]);
+		}
+	}
+	swap(&sc[i + 1], &sc[high]);
+	return (i + 1);
 }
+
+
+void GroupOfStudents::sort(vector<StudentCourses>& arr, int low, int high)
+{
+	if (low < high)
+	{
+		/* pi is partitioning index, arr[p] is now
+		at right place */
+		int pi = partition(arr, low, high);
+
+		// Separately sort elements before 
+		// partition and after partition 
+		sort(arr, low, pi - 1);
+		sort(arr, pi + 1, high);
+	}
+}
+
+void GroupOfStudents::callSort()
+{
+	sort(stdc_vec, 0, stdc_vec.size() - 1);
+}
+
+
+void GroupOfStudents::write_to_file(bool given, string path) {
+	if (!given) {
+		cout << "Unesite adresu fajla: " << "\n";
+		cin >> path;
+	}
+		ofstream _file;
+		_file.open(path);
+
+		for (int i = 0; i < stdc_vec.size(); i++) {
+			_file << stdc_vec[i];
+		}
+
+		_file.close();
+	
+}
+

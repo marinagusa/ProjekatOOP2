@@ -28,13 +28,19 @@ public:
 
 	// add required methods
 	vector<StudentCourses>& get_student_courses();
-	
-	void display();
-	void display_sorted();
+	void set_student_courses(vector<StudentCourses>&);
+	void set_student_courses_empty();
+
+	void display(string);
+	void display_all();	
 	void display_highest();
-	void write_to_file();
-	void izracunajisetuj();
-	void sortiraj(vector<StudentCourses>& sc);
+	void write_to_file(bool,string);
+	void callSort();
+	void sort(vector<StudentCourses>& sc, int, int);
+	
+	friend ostream& operator<<(ostream& os, GroupOfStudents gs);
+
+
 };
 
 #endif /*GROUPOFSTUDENTS_H_*/
